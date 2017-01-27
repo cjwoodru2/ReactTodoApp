@@ -16,11 +16,10 @@ module.exports = {
     } catch(e) {
 
     }
+    // My incorrect guess at a Turnary Operation from notes
+    // Keep for reference and LEARN IT!!!
+    // todos: $.isArray(todos) ? return todos : return []
+    return $.isArray(todos) ? todos : [];
 
-    if ($.isArray(todos)) {
-      return todos;
-    } else {
-      return [];
-    }
   }
 };

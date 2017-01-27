@@ -16,7 +16,7 @@ var TodoApp = React.createClass({
   },
   componentDidUpdate: function () {
     TodoAPI.setTodos(this.state.todos);
-  }
+  },
   handleAddTodo: function (text) {
     this.setState({
       todos: [
