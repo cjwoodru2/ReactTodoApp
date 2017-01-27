@@ -7,7 +7,7 @@ var TodoApp = React.createClass({
   getInitialState: function () {
     return {
       showCompleted: false,
-      searchText: "",
+      searchText: '',
       todos: [
         {
           id: 1,
