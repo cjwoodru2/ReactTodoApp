@@ -17,7 +17,7 @@ export var showCompletedReducer = (state = false, action) => {
     default:
       return state;
   }
-}
+};
 
 export var todosReducer = (state = [], action) => {
   switch (action.type) {
@@ -34,10 +34,10 @@ export var todosReducer = (state = [], action) => {
       ];
     case 'TOGGLE_TODO':
       return state.map((todo) => {
-        if(todo.id === action.id) {
+        if (todo.id === action.id) {
           var nextCompleted = !todo.completed;
 
-          return{
+          return {
             ...todo,
             completed: nextCompleted,
             completedAt: nextCompleted ? moment().unix() : undefined
@@ -45,8 +45,13 @@ export var todosReducer = (state = [], action) => {
         } else {
           return todo;
         }
-      })
+      });
+    case 'ADD_TODOS':
+      return [
+        ...state,
+        ...action.todos
+      ];
     default:
       return state;
   }
-}
+};
