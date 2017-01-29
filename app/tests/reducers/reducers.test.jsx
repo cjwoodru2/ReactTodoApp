@@ -45,7 +45,7 @@ describe('todosReducer', () => {
     expect(res[0]).toEqual(action.todo);
   });
 
-  it('should toggle todo and add time stamp', () => {
+  it('should update todo and add time stamp', () => {
     var todos = [{
       id: '10',
       text: 'Ask a question',
@@ -53,14 +53,20 @@ describe('todosReducer', () => {
       createdAt: 12345,
       completedAt: 125
     }];
+    var updates = {
+      completed: false,
+      completedAt: null
+    };
     var action = {
-      type: 'TOGGLE_TODO',
-      id: '10'
+      type: 'UPDATE_TODO',
+      id: todos[0].id,
+      updates
     }
     var res = reducers.todosReducer(df(todos), df(action));
 
-    expect(res[0].completed).toEqual(false);
-    expect(res[0].completedAt).toEqual(undefined);
+    expect(res[0].completed).toEqual(updates.completed);
+    expect(res[0].completedAt).toEqual(updates.completedAt);
+    expect(res[0].text).toEqual(todos[0].text);
   });
 
   it('should add existing todos', () => {
