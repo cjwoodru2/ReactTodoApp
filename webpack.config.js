@@ -1,6 +1,7 @@
 var webpack = require('webpack');
 var path = require('path');
 
+
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 
 module.exports = {
@@ -16,6 +17,11 @@ module.exports = {
     new webpack.ProvidePlugin({
       '$': 'jquery',
       'jQuery': 'jquery'
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compressor: {
+        warnings: false
+      }
     })
   ],
   output: {
