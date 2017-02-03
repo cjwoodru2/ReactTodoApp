@@ -3,10 +3,10 @@ var React           = require('react'),
     expect          = require('expect'),
     $               = require('jQuery'),
     TestUtils       = require('react-addons-test-utils'),
-    TodoApp         = require('TodoApp'),
     {Provider}      = require('react-redux'),
     configureStore  = require('configureStore');
 
+import {TodoApp} from 'TodoApp';
 import TodoList from 'TodoList';
 
 describe('TodoApp', () => {
